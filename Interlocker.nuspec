@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Interlocker</id>
+        <version>1.0.0</version>
+        <title>Interlocker</title>
+        <authors>Atif Aziz</authors>
+        <owners>Atif Aziz</owners>
+        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+        <projectUrl>https://github.com/atifaziz/Interlocker</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <copyright>Copyright &#169; 2015 Atif Aziz. All rights reserved.</copyright>
+        <description>Tiny library encapsulating boilerplate code for interlocked updates using Interlocked.CompareExchange.</description>
+        <language>en-US</language>
+        <tags>array list</tags>
+        <releaseNotes>Initial release</releaseNotes>
+    </metadata>
+    <files>
+        <file src="COPYING.txt" target="COPYING.txt" />
+        <file src="*.cs" target="src" exclude="*Tests.cs" />
+        <file src="bin\Release\Interlocker.*"
+              target="lib\portable-net40+win+wpa81" />
+    </files>
+</package>

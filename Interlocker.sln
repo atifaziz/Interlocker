@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interlocker", "Interlocker.csproj", "{852C30B8-D2C6-4FFA-9B98-6678E6C29057}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8945E449-0DB2-4351-AA36-BC68E3BCB4D4}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		COPYING.txt = COPYING.txt
+		Interlocker.nuspec = Interlocker.nuspec
+		Interlocker.Source.nuspec = Interlocker.Source.nuspec
+		pack.cmd = pack.cmd
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

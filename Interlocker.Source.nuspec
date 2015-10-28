@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Interlocker.Source</id>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <title>Interlocker (C# Source)</title>
         <authors>Atif Aziz</authors>
         <owners>Atif Aziz</owners>
@@ -16,7 +16,7 @@
 This package is for direct inclusion in a C# project (compatible with C# language versions 6 and above). All types will remain internal to the project.</description>
         <language>en-US</language>
         <tags>threading concurrency interlocked cmpxchg</tags>
-        <releaseNotes>Initial release</releaseNotes>
+        <releaseNotes>Adding Tuple-returning Interlocked&lt;T&gt;.Update overload with iteration argument.</releaseNotes>
     </metadata>
     <files>
         <file src="*.cs" target="content\App_Packages\Interlocker"

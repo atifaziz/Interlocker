@@ -15,7 +15,7 @@
 
 This package is for direct inclusion in a C# project (compatible with C# language versions 6 and above). All types will remain internal to the project.</description>
         <language>en-US</language>
-        <tags>array list</tags>
+        <tags>threading concurrency interlocked cmpxchg</tags>
         <releaseNotes>Initial release</releaseNotes>
     </metadata>
     <files>

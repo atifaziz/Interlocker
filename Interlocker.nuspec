@@ -12,7 +12,7 @@
         <copyright>Copyright &#169; 2015 Atif Aziz. All rights reserved.</copyright>
         <description>Tiny library encapsulating boilerplate code for interlocked updates using Interlocked.CompareExchange.</description>
         <language>en-US</language>
-        <tags>array list</tags>
+        <tags>threading concurrency interlocked cmpxchg</tags>
         <releaseNotes>Initial release</releaseNotes>
     </metadata>
     <files>

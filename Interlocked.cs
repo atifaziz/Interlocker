@@ -45,6 +45,9 @@ namespace Interlocker
         public TResult Update<TResult>(Func<T, Tuple<T, TResult>> updater) =>
             Update(updater, t => t.Item1, t => t.Item2);
 
+        public TResult Update<TResult>(Func<T, int, Tuple<T, TResult>> updater) =>
+            Update(updater, t => t.Item1, t => t.Item2);
+
         public TResult Update<TUpdate, TResult>(
             Func<T, TUpdate> updater,
             Func<TUpdate, T> stateSelector,

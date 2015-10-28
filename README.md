@@ -11,19 +11,19 @@ Interlocker is available from NuGet in two formats:
   * [Single C# source][srcpkg] for direct inclusion in your project:  
     [![NuGet version](https://badge.fury.io/nu/Interlocker.Source.svg)](http://badge.fury.io/nu/Interlocker.Source)
 
-Interlocker comes with the generic type `Interlocked{T}` that is designed to
+Interlocker comes with the generic type `Interlocked<T>` that is designed to
 hold a *logically* shared state that will be the subject of interlocked
 updates. It has a single (overloaded) method called `Update` that is used to
 perform the actual update.
 
-The following example shows how to create an instance of `Interlocked{T}` and
+The following example shows how to create an instance of `Interlocked<T>` and
 update it:
 
 ```c#
 var x = Interlocked.Create(new[] { 42 });
 Console.WriteLine(x.Update(cx => new[] { cx[0] * 2 }));
 
-// Interlocked{T}, like Interlocked.CompareExchange, does not allow value types
+// Interlocked<T>, like Interlocked.CompareExchange, does not allow value types
 // (struct) as the generic type argument for T so the integer is explicitly
 // boxed above via an array.
 ```

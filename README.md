@@ -38,13 +38,16 @@ Following is a more involved example that creates a shared list of integers
 (`nums`) and then launches 50 threads to concurrently append to that list:
 
 ```c#
+var samples = Enumerable.Range(1, 50).ToArray();
 var nums = Interlocked.Create(new int[0]);
-var go = new ManualResetEvent(false);
-var threadz =
-    from n in Enumerable.Range(1, 50)
+
+var start   = new Barrier(samples.Length + 1);
+var finish  = new Barrier(start.ParticipantCount);
+var threads =
+    from n in samples
     select new Thread(() =>
     {
-        go.WaitOne();
+        start.SignalAndWait(); // wait until everyone is running/ready
         nums.Update(ns =>
         {
             var nns = new int[ns.Length + 1];
@@ -52,11 +55,13 @@ var threadz =
             nns[ns.Length] = n;
             return nns;
         });
+        finish.SignalAndWait();
     });
-var threads = threadz.ToArray();        // Ready!
-Array.ForEach(threads, t => t.Start()); // Set!
-go.Set();                               // Go!
-Array.ForEach(threads, t => t.Join());
+
+Array.ForEach(threads.ToArray(), t => t.Start());
+start.SignalAndWait();
+finish.SignalAndWait();
+
 Console.WriteLine("[{0}] = {{{1}}}",
                   nums.Value.Length,
                   string.Join(",", nums.Value));
@@ -78,13 +83,17 @@ and second which projects the return value from `Update`. The next example
 builds on the previous to demonstrate these ideas.
 
 ```c#
+var samples = Enumerable.Range(1, 50).ToArray();
 var nums = Interlocked.Create(new int[0]);
-var go = new ManualResetEvent(false);
-var threadz =
-    from n in Enumerable.Range(1, 50)
+
+var start   = new Barrier(samples.Length + 1);
+var finish  = new Barrier(start.ParticipantCount);
+var threads =
+    from n in samples
     select new Thread(() =>
     {
-        go.WaitOne();
+        start.SignalAndWait(); // wait until everyone is running/ready
+
         var attempts = nums.Update((ns, i) =>
         {
             var nns = new int[ns.Length + 1];
@@ -93,13 +102,17 @@ var threadz =
             return new { Update = nns, Attempts = i + 1 };
         }, e => e.Update,    // The update
            e => e.Attempts); // Return from update
+
         if (attempts > 1)
             Console.WriteLine($"Thread #{n} succeeded after {attempts} attempts.");
+
+        finish.SignalAndWait();
     });
-var threads = threadz.ToArray();        // Ready!
-Array.ForEach(threads, t => t.Start()); // Set!
-go.Set();                               // Go!
-Array.ForEach(threads, t => t.Join());
+
+Array.ForEach(threads.ToArray(), t => t.Start());
+start.SignalAndWait();
+finish.SignalAndWait();
+
 Console.WriteLine("[{0}] = {{{1}}}",
                   nums.Value.Length,
                   string.Join(",", nums.Value));
@@ -115,13 +128,17 @@ the approach with returning a tuple:
 
 
 ```c#
+var samples = Enumerable.Range(1, 50).ToArray();
 var nums = Interlocked.Create(new int[0]);
-var go = new ManualResetEvent(false);
-var threadz =
-    from n in Enumerable.Range(1, 50)
+
+var start   = new Barrier(samples.Length + 1);
+var finish  = new Barrier(start.ParticipantCount);
+var threads =
+    from n in samples
     select new Thread(() =>
     {
-        go.WaitOne();
+        start.SignalAndWait(); // wait until everyone is running/ready
+
         var attempts = nums.Update((ns, i) =>
         {
             var nns = new int[ns.Length + 1];
@@ -129,13 +146,17 @@ var threadz =
             nns[ns.Length] = n;
             return Tuple.Create(nns, i + 1);
         });
+
         if (attempts > 1)
             Console.WriteLine($"Thread #{n} succeeded after {attempts} attempts.");
+
+        finish.SignalAndWait();
     });
-var threads = threadz.ToArray();        // Ready!
-Array.ForEach(threads, t => t.Start()); // Set!
-go.Set();                               // Go!
-Array.ForEach(threads, t => t.Join());
+
+Array.ForEach(threads.ToArray(), t => t.Start());
+start.SignalAndWait();
+finish.SignalAndWait();
+
 Console.WriteLine("[{0}] = {{{1}}}",
                   nums.Value.Length,
                   string.Join(",", nums.Value));

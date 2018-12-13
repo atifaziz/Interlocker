@@ -40,13 +40,13 @@ namespace Interlocker
         public T Value => _value;
 
         public T Update(Func<T, T> updater) =>
-            Update(s => Tuple.Create(s = updater(s), s));
+            Update(s => (s = updater(s), s));
 
-        public TResult Update<TResult>(Func<T, Tuple<T, TResult>> updater) =>
-            Update(updater, t => t.Item1, t => t.Item2);
+        public TResult Update<TResult>(Func<T, (T State, TResult Result)> updater) =>
+            Update(updater, t => t.State, t => t.Result);
 
-        public TResult Update<TResult>(Func<T, int, Tuple<T, TResult>> updater) =>
-            Update(updater, t => t.Item1, t => t.Item2);
+        public TResult Update<TResult>(Func<T, int, (T State, TResult Result)> updater) =>
+            Update(updater, t => t.State, t => t.Result);
 
         public TResult Update<TUpdate, TResult>(
             Func<T, TUpdate> updater,

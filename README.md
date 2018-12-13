@@ -118,13 +118,12 @@ Console.WriteLine("[{0}] = {{{1}}}",
 ```
 
 Instead of returning an anonymous type from the updater function, yet another
-`Update` overload permits returning a [`Tuple` of two][tuple2] where the first
+`Update` overload permits returning a [tuple of two][tuple2] where the first
 item is always the update (and typed such) and the second the return value of
-`Update` (and where in fact the second item can also be an anonymous type). The
-benefit of this is that you don't have to supply additional function's for
+`Update` (and where in fact the second item can also be an anonymous type).
+The benefit of this is that you don't have to supply additional function's for
 projecting the updater functions return value. The example below demonstrates
 the approach with returning a tuple:
-
 
 ```c#
 var samples = Enumerable.Range(1, 50).ToArray();
@@ -143,7 +142,7 @@ var threads =
             var nns = new int[ns.Length + 1];
             ns.CopyTo(nns, 0);
             nns[ns.Length] = n;
-            return Tuple.Create(nns, i + 1);
+            return (nns, i + 1);
         });
 
         if (attempts > 1)
@@ -163,7 +162,7 @@ Console.WriteLine("[{0}] = {{{1}}}",
 
 
   [cmpxchg]: https://msdn.microsoft.com/en-us/library/bb297966(v=vs.110).aspx
-  [tuple2]: https://msdn.microsoft.com/en-us/library/dd268536(v=vs.110).aspx
+  [tuple2]: https://docs.microsoft.com/en-us/dotnet/api/system.valuetuple-2?view=netstandard-2.0
   [build-badge]: https://img.shields.io/appveyor/ci/raboof/interlocker.svg
   [myget-badge]: https://img.shields.io/myget/raboof/v/Interlocker.svg?label=myget
   [edge-pkgs]: https://www.myget.org/feed/raboof/package/nuget/Interlocker

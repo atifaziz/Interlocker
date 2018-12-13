@@ -39,8 +39,11 @@ namespace Interlocker
 
         public T Value => _value;
 
-        public T Update(Func<T, T> updater) =>
-            Update(s => (s = updater(s), s));
+        public T Update(Func<T, T> updater)
+        {
+            if (updater == null) throw new ArgumentNullException(nameof(updater));
+            return Update(s => (s = updater(s), s));
+        }
 
         public TResult Update<TResult>(Func<T, (T State, TResult Result)> updater) =>
             Update(updater, t => t.State, t => t.Result);

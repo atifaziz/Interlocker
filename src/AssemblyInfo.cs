@@ -17,21 +17,5 @@
 using System;
 using System.Reflection;
 
-
-[assembly: AssemblyTitle("Interlocker")]
 [assembly: AssemblyDescription("Interlocked Updates Made Easy")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Interlocker")]
-[assembly: AssemblyCopyright("Copyright \u00a9 2015 Atif Aziz. All rights reserved.")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-
-// Debug or release configuration?
-
-#if DEBUG
-[assembly: AssemblyConfiguration("DEBUG")]
-#else
-[assembly: AssemblyConfiguration("RELEASE")]
-#endif
-
 [assembly: CLSCompliant(true)]

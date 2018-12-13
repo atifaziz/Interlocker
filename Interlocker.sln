@@ -1,32 +1,50 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interlocker", "Interlocker.csproj", "{852C30B8-D2C6-4FFA-9B98-6678E6C29057}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interlocker", "src\Interlocker.csproj", "{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8945E449-0DB2-4351-AA36-BC68E3BCB4D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C28D9015-7760-4E5A-A78F-CA79D01219FC}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		appveyor.yml = appveyor.yml
 		build.cmd = build.cmd
+		build.sh = build.sh
 		COPYING.txt = COPYING.txt
-		Interlocker.nuspec = Interlocker.nuspec
-		Interlocker.Source.nuspec = Interlocker.Source.nuspec
+		global.json = global.json
 		pack.cmd = pack.cmd
+		pack.sh = pack.sh
 		README.md = README.md
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{852C30B8-D2C6-4FFA-9B98-6678E6C29057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Debug|x64.Build.0 = Debug|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Debug|x86.Build.0 = Debug|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Release|x64.ActiveCfg = Release|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Release|x64.Build.0 = Release|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Release|x86.ActiveCfg = Release|Any CPU
+		{0FBF40F7-FC6E-4697-85F7-27E78AFB3666}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31F9FDCA-D435-451E-8983-582895914BEA}
 	EndGlobalSection
 EndGlobal

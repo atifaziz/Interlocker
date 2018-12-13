@@ -1,15 +1,14 @@
 # Interlocker
 
-Interlocker is a tiny .NET library that encapsulates the boilerplate code often
-needed for performing interlocked updates using
+[![Build Status][build-badge]][builds]
+[![NuGet][nuget-badge]][nuget-pkg]
+[![MyGet][myget-badge]][edge-pkgs]
+
+Interlocker is a tiny [.NET Standard][netstd] library that encapsulates the
+boilerplate code often needed for performing interlocked updates using
 [`Interlocked.CompareExchange`][cmpxchg].
 
-Interlocker is available from NuGet in two formats:
-
-  * [Portable Class Library][pclpkg]  
-    [![NuGet version](https://badge.fury.io/nu/Interlocker.svg)](http://badge.fury.io/nu/Interlocker)
-  * [Single C# source][srcpkg] for direct inclusion in your project:  
-    [![NuGet version](https://badge.fury.io/nu/Interlocker.Source.svg)](http://badge.fury.io/nu/Interlocker.Source)
+  [netstd]: https://docs.microsoft.com/en-us/dotnet/articles/standard/library
 
 Interlocker comes with the generic type `Interlocked<T>` that is designed to
 hold a *logically* shared state that will be the subject of interlocked
@@ -163,7 +162,11 @@ Console.WriteLine("[{0}] = {{{1}}}",
 ```
 
 
-  [pclpkg]: https://www.nuget.org/packages/Interlocker/
-  [srcpkg]: https://www.nuget.org/packages/Interlocker.Source/
   [cmpxchg]: https://msdn.microsoft.com/en-us/library/bb297966(v=vs.110).aspx
   [tuple2]: https://msdn.microsoft.com/en-us/library/dd268536(v=vs.110).aspx
+  [build-badge]: https://img.shields.io/appveyor/ci/raboof/interlocker.svg
+  [myget-badge]: https://img.shields.io/myget/raboof/v/Interlocker.svg?label=myget
+  [edge-pkgs]: https://www.myget.org/feed/raboof/package/nuget/Interlocker
+  [nuget-badge]: https://img.shields.io/nuget/v/Interlocker.svg
+  [nuget-pkg]: https://www.nuget.org/packages/Interlocker
+  [builds]: https://ci.appveyor.com/project/raboof/interlocker

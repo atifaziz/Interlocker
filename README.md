@@ -77,7 +77,7 @@ The return value of `Update` is the successfully updated value.
 
 An overload of `Update` supplies the update function with a second parameter
 that is the iteration number (`i` in the next example). It is also possible
-to return any type of value form the update function. When you do this, you
+to return any type of value from the update function. When you do this, you
 have supply two more functions to `Update`: first which projects the update
 and second which projects the return value from `Update`. The next example
 builds on the previous to demonstrate these ideas.

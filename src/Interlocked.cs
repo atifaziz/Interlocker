@@ -24,7 +24,7 @@ namespace Interlocker
 
     static partial class Interlocked
     {
-        public static Interlocked<T> Create<T>(T value = default(T))
+        public static Interlocked<T> Create<T>(T value = default)
             where T : class =>
             new Interlocked<T>(value);
     }
@@ -34,8 +34,8 @@ namespace Interlocker
     {
         T _value;
 
-        public Interlocked() : this(default(T)) { }
-        public Interlocked(T value) { _value = value; }
+        public Interlocked() : this(default) { }
+        public Interlocked(T value) => _value = value;
 
         public T Value => _value;
 

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
     <VersionPrefix>2.0.0</VersionPrefix>
+    <LangVersion>7.3</LangVersion>
     <DebugType>portable</DebugType>
     <Description>Tiny library encapsulating boilerplate code for interlocked updates using Interlocked.CompareExchange.</Description>
     <Copyright>Copyright © 2015 Atif Aziz. All rights reserved.</Copyright>

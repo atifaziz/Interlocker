@@ -54,14 +54,20 @@ namespace Interlocker
         public TResult Update<TUpdate, TResult>(
             Func<T, TUpdate> updater,
             Func<TUpdate, T> stateSelector,
-            Func<TUpdate, TResult> resultSelector) =>
-            Update((curr, i, attempt) => updater(curr), stateSelector, resultSelector);
+            Func<TUpdate, TResult> resultSelector)
+        {
+            if (updater == null) throw new ArgumentNullException(nameof(updater));
+            return Update((curr, i, attempt) => updater(curr), stateSelector, resultSelector);
+        }
 
         public TResult Update<TUpdate, TResult>(
             Func<T, int, TUpdate> updater,
             Func<TUpdate, T> stateSelector,
-            Func<TUpdate, TResult> resultSelector) =>
-            Update((curr, i, _) => updater(curr, i), stateSelector, resultSelector);
+            Func<TUpdate, TResult> resultSelector)
+        {
+            if (updater == null) throw new ArgumentNullException(nameof(updater));
+            return Update((curr, i, _) => updater(curr, i), stateSelector, resultSelector);
+        }
 
         public TResult Update<TUpdate, TResult>(
             Func<T, int, TUpdate, TUpdate> updater,

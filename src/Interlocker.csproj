@@ -10,7 +10,7 @@
     <Authors>Atif Aziz</Authors>
     <PackageTags>threading;concurrency;interlocked;cmpxchg</PackageTags>
     <PackageProjectUrl>https://github.com/atifaziz/Interlocker</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageLicenseFile>COPYING.txt</PackageLicenseFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageOutputPath>..\dist</PackageOutputPath>
     <IncludeSymbols>true</IncludeSymbols>
@@ -32,9 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\COPYING.txt" Link="COPYING.txt">
-      <PackagePath />
-    </Content>
+    <None Include="..\COPYING.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
   </ItemGroup>
 
 </Project>
